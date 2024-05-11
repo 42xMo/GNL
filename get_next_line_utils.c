@@ -6,8 +6,18 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:07:56 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/08 19:11:50 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/05/11 15:09:18 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_strlen(char *str)
+{
+	int	i;
+	
+	i = 0;
+	while (str[i])
+		++i;
+	return (i);
+}
