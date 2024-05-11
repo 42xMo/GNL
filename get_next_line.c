@@ -6,11 +6,21 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:07:54 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/11 17:26:03 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:32:26 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static 
+{
+
+}
+
+static 
+{
+
+}
 
 char	*get_next_line(int fd)
 {
