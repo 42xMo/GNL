@@ -6,7 +6,7 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:07:50 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/08 19:11:56 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/05/11 15:07:53 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+int		ft_strlen(char *str);
 char	*get_next_line(int fd);
 
-#endif
+# endif
