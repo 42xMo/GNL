@@ -6,7 +6,7 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:07:56 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/14 17:15:19 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:30:30 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@ char	*ft_strdup(const char *s)
 		res[i] = s[i];
 	res[i] = '\0';
 	return (res);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (c == '\0')
+		return ((char *)s + i);
+	return (NULL);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
