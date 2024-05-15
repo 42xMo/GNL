@@ -6,7 +6,7 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:07:54 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/15 18:13:29 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/05/15 18:21:12 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*static_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	static_line = ft_read(fd, static_line);
 	if (!static_line)
