@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 19:07:54 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/20 15:57:19 by mabdessm         ###   ########.fr       */
+/*   Created: 2024/05/20 15:10:21 by mabdessm          #+#    #+#             */
+/*   Updated: 2024/05/20 15:55:59 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_read(int fd, char *static_line)
 {
@@ -98,15 +98,15 @@ static char	*get_next_static_line(char *static_line)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*static_line;
+	static char	*static_line[128];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 128 || BUFFER_SIZE <= 0)
 		return (NULL);
-	static_line = ft_read(fd, static_line);
-	if (!static_line)
+	static_line[fd] = ft_read(fd, static_line[fd]);
+	if (!static_line[fd])
 		return (NULL);
-	line = parse_line(static_line);
-	static_line = get_next_static_line(static_line);
+	line = parse_line(static_line[fd]);
+	static_line[fd] = get_next_static_line(static_line[fd]);
 	return (line);
 }
 
@@ -114,19 +114,26 @@ char	*get_next_line(int fd)
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
-	int	fd;
+	int	fd1;
+	int	fd2;
+	int	fd3;
 	
-	fd = open("./test.txt", O_RDONLY);
-	printf("first line 1st		:	%s\n", get_next_line(fd));
-	printf("second line 2nd		:	%s\n", get_next_line(fd));
-	printf("third line 3rd		:	%s\n", get_next_line(fd));
-	printf("fourth line 4th		:	%s\n", get_next_line(fd));
-	printf("fifth line 5th		:	%s\n", get_next_line(fd));
-	printf("sixth line 6th		:	%s\n", get_next_line(fd));
-	printf("seventh line 7th	:	%s\n", get_next_line(fd));
-	printf("eighth line 8th		:	%s\n", get_next_line(fd));
-	printf("nineth line 9th		:	%s\n", get_next_line(fd));
-	printf("tenth line 10th		:	%s\n", get_next_line(fd));
-	printf("eleventh line 11th	:	%s\n", get_next_line(fd));
-	close(fd);
+	fd1 = open("./test1.txt", O_RDONLY);
+	fd2 = open("./test2.txt", O_RDONLY);
+	fd3 = open("./test3.txt", O_RDONLY);
+	printf("test1 first line	:	%s\n", get_next_line(fd1));
+	printf("test2 first line	:	%s\n", get_next_line(fd2));
+	printf("test3 first line	:	%s\n", get_next_line(fd3));
+	printf("test1 second line	:	%s\n", get_next_line(fd1));
+	printf("test2 second line	:	%s\n", get_next_line(fd2));
+	printf("test3 second line	:	%s\n", get_next_line(fd3));
+	printf("test1 third line	:	%s\n", get_next_line(fd1));
+	printf("test2 third line	:	%s\n", get_next_line(fd2));
+	printf("test3 third line	:	%s\n", get_next_line(fd3));
+	printf("test1 fourth line	:	%s\n", get_next_line(fd1));
+	printf("test2 fourth line	:	%s\n", get_next_line(fd2));
+	printf("test3 fourth line	:	%s\n", get_next_line(fd3));
+	close(fd1);
+	close(fd2);
+	close(fd3);
 }*/
