@@ -6,13 +6,13 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:07:54 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/15 18:21:12 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:02:52 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read(int fd, char *static_line)
+static char	*ft_read(int fd, char *static_line)
 {
 	int		i;
 	char	*buffer;
@@ -41,7 +41,7 @@ char	*ft_read(int fd, char *static_line)
 	return (static_line);
 }
 
-char	*parse_line(char *static_line)
+static char	*parse_line(char *static_line)
 {
 	int		i;
 	char	*res;
@@ -52,6 +52,8 @@ char	*parse_line(char *static_line)
 	while (static_line[i] && static_line[i] != '\n')
 		++i;
 	res = malloc(sizeof(char) * (i + 2));
+	if (!res)
+		return (NULL);
 	i = 0;
 	while (static_line[i] && static_line[i] != '\n')
 	{
@@ -67,7 +69,7 @@ char	*parse_line(char *static_line)
 	return (res);
 }
 
-char	*get_next_static_line(char *static_line)
+static char	*get_next_static_line(char *static_line)
 {
 	int		i;
 	int		j;
@@ -83,6 +85,8 @@ char	*get_next_static_line(char *static_line)
 		return (NULL);
 	}
 	res = malloc(sizeof(char) * (ft_strlen(static_line) - i + 1));
+	if (!res)
+		return (NULL);
 	++i;
 	while (static_line[i])
 		res[j++] = static_line[i++];
