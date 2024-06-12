@@ -6,7 +6,7 @@
 /*   By: mabdessm <mabdessm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:10:21 by mabdessm          #+#    #+#             */
-/*   Updated: 2024/05/20 15:55:59 by mabdessm         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:57:23 by mabdessm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,18 +121,23 @@ int	main(int argc, char **argv)
 	fd1 = open("./test1.txt", O_RDONLY);
 	fd2 = open("./test2.txt", O_RDONLY);
 	fd3 = open("./test3.txt", O_RDONLY);
+	
 	printf("test1 first line	:	%s\n", get_next_line(fd1));
 	printf("test2 first line	:	%s\n", get_next_line(fd2));
 	printf("test3 first line	:	%s\n", get_next_line(fd3));
+	
 	printf("test1 second line	:	%s\n", get_next_line(fd1));
 	printf("test2 second line	:	%s\n", get_next_line(fd2));
 	printf("test3 second line	:	%s\n", get_next_line(fd3));
+	
 	printf("test1 third line	:	%s\n", get_next_line(fd1));
 	printf("test2 third line	:	%s\n", get_next_line(fd2));
 	printf("test3 third line	:	%s\n", get_next_line(fd3));
+	
 	printf("test1 fourth line	:	%s\n", get_next_line(fd1));
 	printf("test2 fourth line	:	%s\n", get_next_line(fd2));
 	printf("test3 fourth line	:	%s\n", get_next_line(fd3));
+	
 	close(fd1);
 	close(fd2);
 	close(fd3);
